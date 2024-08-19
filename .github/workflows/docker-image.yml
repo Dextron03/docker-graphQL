@@ -13,15 +13,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Chekout code
-      uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v3
       with:
-        fech-depth: 0
+        fetch-depth: 0
+    
     - name: Git Semantic Version
       uses: PaulHatch/semantic-version@v4.0.3
       with:
-        major_pattern: "major"
-        minor_pattern: "fest"
+        major_pattern: "major:"
+        minor_pattern: "feat:"
         format: "${major}.${minor}.${patch}-prerelease${increment}"
       id: version
 
